@@ -46,6 +46,7 @@ These notes are not necessarily accurate.
 - Segmentation faults happen when a program is trying to read a region of memory that the operating has not allocated to the calling program.
 - Local variables are allocated on the stack.
 - The current function being executed has a return address which on the stack.
+- When the current function exits, the execution of the program continues where the return address is pointing to.
 - When writing data outside of a buffer's range allocated on the stack,
   the return pointer address of the current function being executed may be overwritten.
 - If the resulting return pointer address points outside of the program memory region, it will cause a segmentation fault.
