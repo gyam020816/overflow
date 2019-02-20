@@ -11,6 +11,20 @@ These notes are not necessarily accurate.
 - If the resulting return pointer address points outside of the program memory region, it will cause a segmentation fault.
 - Otherwise, it will cause the program to execute whatever the address is pointing to as if it were executable code.
 
+### writing executable code on the stack
+
+- It is possible to write executable code in the stack, and make the return address point to the stack so that it will be executed.
+- However since the stack should not normally contain executable code, operating systems may prevent running executable code on the stack.
+- Usually a combination of:
+  - Heap spraying: The buffer is filled with a repeated value, which will do nothing (no op) when executed.
+  - Shellcode: An arbitrary piece of executable code
+  - Return address: An address that will point into the region of memory that was filled with no op.
+
+### return-to-library
+
+- Rather than writing executable code in the stack, craft return addresses towards existing library functions.
+- Chaining library function executions together pretty much means executing arbitrary code.
+- However since memory addresses for these libraries needs to be known beforehand, operating systems may prevent executing these functions by randomizing their location.
 
 ## normal
 
