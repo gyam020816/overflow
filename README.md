@@ -1,5 +1,12 @@
 ## notes to self
 
+Why?
+
+- I realize that I often read about security vulnerabilities from an outsider point of view.
+- When I see "execute arbitrary code" or "remote code execution", I have no idea how it is even possible.
+- I know that buffer overflows are a source of security vulnerabilities, but I completely lack the theory on how to bridge a "buffer overflow" into a "vulnerability".
+- So I decided to look and learn a bit about it myself to get some minimal understanding of what's going on.
+
 These notes are not necessarily accurate.
 
 - Segmentation faults happen when a program is trying to read a region of memory that the operating has not allocated to the calling program.
