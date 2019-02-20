@@ -1,0 +1,40 @@
+### normal
+
+Compile:
+
+```sh
+$ gcc -o main src/main/c/main.c
+$ chmod +x main
+```
+
+Execute:
+
+```sh
+$ ./main 0123456789012345678901234567890123456789
+0123456789012345678901234567890123456789
+
+$ ./main 01234567890123456789012345678901234567890
+01234567890123456789012345678901234567890
+*** stack smashing detected ***: ./main terminated
+Abandon (core dumped)     
+```
+
+### no-stack-protector
+
+Compile:
+
+```sh
+gcc -o main src/main/c/main.c -fno-stack-protector
+chmod +x main
+```
+
+Execute:
+
+```sh
+$ ./main 01234567890123456789012345678901234567890
+01234567890123456789012345678901234567890
+
+$ ./main 01234567890123456789012345678901234567890000000000000000
+01234567890123456789012345678901234567890000000000000000
+Erreur de segmentation (core dumped)
+```
